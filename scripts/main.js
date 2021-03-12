@@ -5,6 +5,8 @@ import { makeLegoList } from './legos/LegoList.js';
 
 const navElement = document.querySelector("nav");
 
+
+//Filter by Color
 navElement.addEventListener("click", (event) => {
 	if (event.target.id === "showBlue") {
 		filterLegos("Blue")
@@ -37,8 +39,9 @@ const filterLegos = (whatFilter) => {
 	})
 	makeLegoList(filterArray);
 }
+//Filter by Color
 
-/////////// materials filters ////////
+// Filter by Material
 
 const materialElement = document.querySelector("#materialsMenu");
 materialElement.addEventListener("change", (event) => {
@@ -58,7 +61,35 @@ const filterLegoMaterials = (material) => {
 	makeLegoList(filterArrayMaterials);
 }
 
-//////////// materials filters //////////
+// Filter by Material
+
+
+
+
+
+// searchbar //
+
+const filterBySearch = (input) => {
+	const filterArrayLegoID = useLegos().filter(singleLego => {
+		if (singleLego.LegoID === (input)) {
+			return singleLego;
+		}
+	})
+	makeLegoList(filterArrayLegoID);
+};
+
+
+const inputElement = document.querySelector("#input");
+inputElement.addEventListener("keyup", (event) => {
+  if (event.key === "Enter") {
+	const inputValue = inputElement.value;
+    filterBySearch(inputValue)
+  }
+
+})
+
+// searchbar //
+
 
 const startEIA = () => {
 	loadLegos()
