@@ -38,12 +38,32 @@ const filterLegos = (whatFilter) => {
 	makeLegoList(filterArray);
 }
 
+/////////// materials filters ////////
+
+// const filterLegoMaterials = (material) => {
+// 	const filterArrayMaterials = useLegos().filter(singleLego => {
+// 		if (singleLego.material.includes(material)) {
+// 			return singleLego;
+// 		}
+// 	})
+// 	makeLegoList(filterArrayMaterials);
+// }
+
+// navElement.addEventListener("click", (event) => {
+// 	if (event.target.id === "metallic") {
+// 		filterLegos("Metallic")
+// 	} else if (event.target.id === "showAll") {
+// 		makeLegoList(useLegos())
+// 	}
+// })
+
+//////////// materials filters //////////
 
 const startEIA = () => {
 	loadLegos()
-	.then(legoArray => {
-		makeLegoList(legoArray)
-	})
+		.then(legoArray => {
+			makeLegoList(legoArray)
+		})
 
 }
 
