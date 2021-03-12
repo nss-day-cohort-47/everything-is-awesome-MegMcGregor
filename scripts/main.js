@@ -2,11 +2,28 @@ console.log("hello beautiful")
 import { loadLegos, useLegos } from './legos/LegoData.js'
 import { makeLegoList } from './legos/LegoList.js';
 
+
 const navElement = document.querySelector("nav");
 
 navElement.addEventListener("click", (event) => {
 	if (event.target.id === "showBlue") {
 		filterLegos("Blue")
+	} else if (event.target.id === "showAll") {
+		makeLegoList(useLegos())
+	}
+})
+
+navElement.addEventListener("click", (event) => {
+	if (event.target.id === "showGreen") {
+		filterLegos("Green")
+	} else if (event.target.id === "showAll") {
+		makeLegoList(useLegos())
+	}
+})
+
+navElement.addEventListener("click", (event) => {
+	if (event.target.id === ("showRed")) {
+		filterLegos("Red")
 	} else if (event.target.id === "showAll") {
 		makeLegoList(useLegos())
 	}
