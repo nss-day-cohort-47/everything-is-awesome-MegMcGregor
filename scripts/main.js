@@ -40,22 +40,23 @@ const filterLegos = (whatFilter) => {
 
 /////////// materials filters ////////
 
-// const filterLegoMaterials = (material) => {
-// 	const filterArrayMaterials = useLegos().filter(singleLego => {
-// 		if (singleLego.material.includes(material)) {
-// 			return singleLego;
-// 		}
-// 	})
-// 	makeLegoList(filterArrayMaterials);
-// }
+const materialElement = document.querySelector("#materialsMenu");
+materialElement.addEventListener("change", (event) => {
+	if (event.target.id === "materialsMenu") {
+		const materialValue =(event.target.value);
+		filterLegoMaterials(materialValue)
+	}
 
-// navElement.addEventListener("click", (event) => {
-// 	if (event.target.id === "metallic") {
-// 		filterLegos("Metallic")
-// 	} else if (event.target.id === "showAll") {
-// 		makeLegoList(useLegos())
-// 	}
-// })
+})
+
+const filterLegoMaterials = (material) => {
+	const filterArrayMaterials = useLegos().filter(singleLego => {
+		if (singleLego.Material.includes(material)) {
+			return singleLego;
+		}
+	})
+	makeLegoList(filterArrayMaterials);
+}
 
 //////////// materials filters //////////
 
